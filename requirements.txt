@@ -1,0 +1,6 @@
+pip install opencv-python
+pip install opencv-python-tracking
+pip install opencv-python-xobjdetect
+pip install opencv-python-plot
+pip install opencv-python-rgbd
+pip install opencv-python-shape
