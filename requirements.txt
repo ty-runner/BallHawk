@@ -1,8 +1,8 @@
-pip install opencv-python
-pip install opencv-python-tracking
-pip install opencv-python-xobjdetect
-pip install opencv-python-plot
-pip install opencv-python-rgbd
-pip install opencv-python-shape
-pip install numpy
-pip install filestack-python
+opencv-python
+opencv-python-tracking
+opencv-python-xobjdetect
+opencv-python-plot
+opencv-python-rgbd
+opencv-python-shape
+numpy
+filestack-python
