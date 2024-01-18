@@ -2,6 +2,10 @@
 Ty Runner, Jungwoo Kwon, Michael Ross
 ## Football film analysis tool
 
+
+
+Install dependancies using: "pip install -r requirements.txt"
+
 Goals: 
 
 * Develop a program that significantly reduces the time coaches spend on analyzing football game film. 

@@ -4,3 +4,5 @@ pip install opencv-python-xobjdetect
 pip install opencv-python-plot
 pip install opencv-python-rgbd
 pip install opencv-python-shape
+pip install numpy
+pip install filestack-python
