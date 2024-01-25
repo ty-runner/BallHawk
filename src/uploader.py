@@ -1,6 +1,6 @@
 import cv2
 
-video_path = 'test/file/test.mp4'
+video_path = 'test_data/people-detection.mp4'
 
 # Create video cap object
 capture = cv2.VideoCapture(video_path)
