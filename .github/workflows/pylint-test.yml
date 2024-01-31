@@ -34,14 +34,22 @@ jobs:
 
       - name: Generate Build Artifact
         run: |
-          python setup.py sdist bdist_wheel
-          # This command generates distribution files in 'dist/'
+          mkdir build_output
+          # Copying specific Python scripts from the src directory
+          cp src/ball_hawk.py build_output/
+          cp src/ball_tracker.py build_output/
+          cp src/feature_matching.py build_output/
+          cp src/file_io.py build_output/
+          cp src/main.py build_output/
+          cp src/player_tracker.py build_output/
+          cp src/trackbar.py build_output/
+          cp src/utility.py build_output/
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:
           name: build-artifact-${{ github.run_id }}
-          path: dist/
+          path: build_output/
 
       - name: Display Logs
         run: echo "Build and lint checks completed"
