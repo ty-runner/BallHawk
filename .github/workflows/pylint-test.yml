@@ -36,14 +36,10 @@ jobs:
         run: |
           mkdir build_output
           # Copying specific Python scripts from the src directory
-          cp src/ball_hawk.py build_output/
-          cp src/ball_tracker.py build_output/
-          cp src/feature_matching.py build_output/
-          cp src/file_io.py build_output/
+          cp src/basic_GUI.py build_output/
           cp src/main.py build_output/
-          cp src/player_tracker.py build_output/
-          cp src/trackbar.py build_output/
-          cp src/utility.py build_output/
+          cp src/tracker.py build_output/
+          cp src/uploader.py build_output/
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
