@@ -26,25 +26,22 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Install Pylint and diffoscope
-        run: pip install pylint diffoscope
+      - name: Install Pylint
+        run: pip install pylint
 
       - name: Run Pylint
         run: pylint .
 
       - name: Generate Build Artifact
         run: |
-          # Add your build commands here
-          # For example: python setup.py build
-          # Store the output in a directory, e.g., 'build_output/'
-          mkdir build_output
-          echo "Build files go here" > build_output/build.txt
+          python setup.py sdist bdist_wheel
+          # This command generates distribution files in 'dist/'
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: build-artifact
-          path: build_output/
+          name: build-artifact-${{ github.run_id }}
+          path: dist/
 
       - name: Display Logs
-        run: echo "Build and lint checks completed" 
+        run: echo "Build and lint checks completed"
