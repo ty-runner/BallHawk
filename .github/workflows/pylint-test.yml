@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: python:3.8  # Use a Python 3.8 container for isolation
+    container: python:3.8
 
     steps:
       - name: Checkout Repository
@@ -31,6 +31,21 @@ jobs:
 
       - name: Run Pylint
         run: pylint .
+
+      - name: Generate Build Artifact
+        run: |
+          mkdir build_output
+          # Copying specific Python scripts from the src directory
+          cp src/basic_GUI.py build_output/
+          cp src/main.py build_output/
+          cp src/tracker.py build_output/
+          cp src/uploader.py build_output/
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact-${{ github.run_id }}
+          path: build_output/
 
       - name: Display Logs
         run: echo "Build and lint checks completed"
