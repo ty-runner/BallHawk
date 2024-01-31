@@ -56,4 +56,4 @@ jobs:
           path: diffoscope_report.txt
 
       - name: Display Logs
-        run: echo "Build and lint checks completed"
+        run: echo "Build and lint checks completed" 
