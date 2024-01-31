@@ -1,5 +1,4 @@
 opencv-python
-opencv-python-tracking
 opencv-python-xobjdetect
 opencv-python-plot
 opencv-python-rgbd
