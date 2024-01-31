@@ -30,7 +30,7 @@ jobs:
         run: pip install pylint
 
       - name: Run Pylint
-        run: pylint .
+        run: pylint . > pylint_log.txt
 
       - name: Generate Build Artifact
         run: |
@@ -40,6 +40,7 @@ jobs:
           cp src/main.py build_output/
           cp src/tracker.py build_output/
           cp src/uploader.py build_output/
+          cp pylint_log.txt build_output/
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
@@ -47,5 +48,11 @@ jobs:
           name: build-artifact-${{ github.run_id }}
           path: build_output/
 
+      - name: Upload Pylint Log
+        uses: actions/upload-artifact@v2
+        with:
+          name: pylint-log-${{ github.run_id }}
+          path: pylint_log.txt
+
       - name: Display Logs
-        run: echo "Build and lint checks completed"
+        run: cat pylint_log.txt  # Display the log in the workflow output
