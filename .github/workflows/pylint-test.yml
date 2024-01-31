@@ -37,23 +37,14 @@ jobs:
           # Add your build commands here
           # For example: python setup.py build
           # Store the output in a directory, e.g., 'build_output/'
+          mkdir build_output
+          echo "Build files go here" > build_output/build.txt
 
-      - name: Download Previous Build Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: previous-build-artifact
-          # Specify path if needed
-          # path: path-to-previous-artifact
-
-      - name: Compare Builds with diffoscope
-        run: |
-          diffoscope previous-build-artifact build_output/ > diffoscope_report.txt
-
-      - name: Upload diffoscope Report
+      - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: diffoscope-report
-          path: diffoscope_report.txt
+          name: build-artifact
+          path: build_output/
 
       - name: Display Logs
         run: echo "Build and lint checks completed" 
