@@ -6,6 +6,9 @@ Ty Runner, Jungwoo Kwon, Michael Ross
 
 Install dependancies using: "pip install -r requirements.txt"
 
+Introduction:
+* In the strategic landscape of football, the detailed analysis of game film is a fundamental aspect of preparation, yet it is historically burdened by its labor-intensive nature. Coaches and players often immerse themselves in extensive film study, attempting to identify and understand key trends and tactics from hours of footage. Our project introduces a groundbreaking solution aimed at streamlining this process. By employing advanced technology, our program efficiently sifts through vast amounts of film, pinpointing crucial trends and specific instances, such as a notable play in a particular game. This process not only accelerates the initial phase of film analysis but also eliminates the more laborious aspects of the task. The reduction of this initial workload brings a two-fold advantage. Firstly, it allows coaches and players to allocate more time to delve into the finer details of the game, focusing on in-depth strategic analysis and personalized coaching techniques. Secondly, by removing the more tedious elements of film study, our tool enhances the overall focus and engagement of the team with the material. Coaches can concentrate their efforts on developing sophisticated game plans and nuanced understanding of their opponents, while players can better absorb and apply the insights gained from a more targeted analysis. Ultimately, our aim is to revolutionize the approach to football film study, making it a more efficient, focused, and ultimately more effective tool in the arsenal of football teams striving for excellence.
+
 Goals: 
 
 * Develop a program that significantly reduces the time coaches spend on analyzing football game film. 
