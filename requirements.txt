@@ -1,8 +1,2 @@
 opencv-python
-opencv-python-tracking
-opencv-python-xobjdetect
-opencv-python-plot
-opencv-python-rgbd
-opencv-python-shape
 numpy
-filestack-python
