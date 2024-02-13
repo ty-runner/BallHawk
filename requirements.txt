@@ -1,5 +1,6 @@
-opencv-python
-numpy
-yolov5
-torch
-pylint
+opencv-python==4.9.0.80
+numpy==1.26.3
+yolov5==7.0.13
+torch==2.2.0
+pylint==3.0.3
+torchvision==0.17.0
