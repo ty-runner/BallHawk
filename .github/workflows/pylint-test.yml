@@ -29,13 +29,16 @@ jobs:
       - name: Install Pylint
         run: pip install pylint
 
+      - name: Download YOLOv5 Model
+        run: |
+          python -c "import torch; model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True); model.save('yolov5s_model.pt')"
+
       - name: Run Pylint
         run: pylint . > pylint_log.txt
 
       - name: Generate Build Artifact
         run: |
           mkdir build_output
-          # Copying specific Python scripts from the src directory
           cp src/basic_GUI.py build_output/
           cp src/main.py build_output/
           cp src/tracker.py build_output/
@@ -55,4 +58,4 @@ jobs:
           path: pylint_log.txt
 
       - name: Display Logs
-        run: cat pylint_log.txt  # Display the log in the workflow output
+        run: cat pylint_log.txt
