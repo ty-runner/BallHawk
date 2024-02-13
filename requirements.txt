@@ -1,3 +1,5 @@
 opencv-python
 numpy
 yolov5
+torch
+pylint
