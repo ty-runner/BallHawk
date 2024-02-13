@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: python:3.8
+    container: python:3.12
 
     steps:
       - name: Checkout Repository
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.8'
+          python-version: '3.12'
 
       - name: Install Dependencies
         run: |
