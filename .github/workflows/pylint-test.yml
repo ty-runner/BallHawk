@@ -29,10 +29,6 @@ jobs:
       - name: Install Pylint
         run: pip install pylint
 
-      - name: Download YOLOv5 Model
-        run: |
-          python -c "import torch; model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True); model.save('yolov5s_model.pt')"
-
       - name: Run Pylint
         run: pylint . > pylint_log.txt
 
