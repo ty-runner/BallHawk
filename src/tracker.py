@@ -1,8 +1,6 @@
+'''
 import cv2
 from ultralytics import YOLO
-
-
-
 
 def initialize_tracker(frame, boxes):
     trackers = cv2.MultiTracker_create()
@@ -76,6 +74,70 @@ while capture.isOpened():
 
 # When everything done, release the video capture object
 capture.release()
+
+# Closes all the frames
+cv2.destroyAllWindows()
+'''
+import cv2
+from ultralytics import YOLO
+
+def initialize_tracker(frame, boxes):
+    trackers = cv2.MultiTracker_create()
+    for box in boxes:
+        trackers.add(cv2.TrackerCSRT_create(), frame, tuple(box))
+    return trackers
+
+def detect_players(frame, model, conf_threshold=0.5):
+    results = model(frame)
+    boxes = []
+    # Use the .xyxy attribute and filter by confidence level
+    for *xyxy, conf, cls in results.boxes.xyxy[0]:
+        if conf > conf_threshold:
+            x1, y1, x2, y2 = map(int, xyxy)
+            boxes.append([x1, y1, x2-x1, y2-y1])  # Convert to x, y, w, h
+    return boxes
+
+# Load YOLOv8 model
+model = YOLO("yolov8n.pt")
+
+# Setup video capture and output
+capture = cv2.VideoCapture('test1.mp4')
+frame_width = int(capture.get(3))
+frame_height = int(capture.get(4))
+out = cv2.VideoWriter('test1_output.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))
+
+first_frame = True
+while capture.isOpened():
+    ret, frame = capture.read()
+    if not ret:
+        break
+
+    if first_frame:
+        # Detect players in the first frame
+        boxes = detect_players(frame, model)
+        tracker = initialize_tracker(frame, boxes)
+        first_frame = False
+    else:
+        # Update tracker in subsequent frames
+        success, boxes = tracker.update(frame)
+
+        # Draw tracking boxes
+        for i, newbox in enumerate(boxes):
+            p1 = (int(newbox[0]), int(newbox[1]))
+            p2 = (int(newbox[0] + newbox[2]), int(newbox[1] + newbox[3]))
+            cv2.rectangle(frame, p1, p2, (0,255,0), 2, 1)
+
+    # Write frame into the output file
+    out.write(frame)
+
+    # Display frame
+    cv2.imshow("Frame", frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):  # Press Q to exit
+        break
+
+# When everything done, release the video capture and video write objects
+capture.release()
+out.release()
 
 # Closes all the frames
 cv2.destroyAllWindows()
