@@ -2,10 +2,8 @@ import cv2
 from ultralytics import YOLO
 
 def process_frame(frame, model, prev_positions):
-    # Perform detection
     results = model(frame)
     
-    # Accessing detection results
     for result in results:
         boxes = result.boxes 
         for box in boxes:

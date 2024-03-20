@@ -30,6 +30,22 @@ if __name__ == "__main__":
     output_path = 'test2_output.mp4'  # Output video path
     process_video(video_path, output_path)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 '''
 import cv2
 from ultralytics import YOLO
