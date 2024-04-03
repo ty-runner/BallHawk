@@ -5,8 +5,6 @@ import os
 import sys
 from uploader import process_video
 
-
-
 current_path = os.getcwd()
 print("Current path:", current_path)
 

@@ -40,13 +40,10 @@ def process_frame(frame, model, prev_positions):
 
     return frame
 
-# Load YOLO model
 model = YOLO('yolov8n.pt')
 
-# Initialize video source
 cap = cv2.VideoCapture('test2.mp4')
 
-# Dictionary to store previous positions of detected persons
 prev_positions = {}
 
 while True:

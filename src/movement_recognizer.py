@@ -9,8 +9,8 @@ def find_similar_movement_pattern(target_movement, all_movements, k=1):
     return similar_movements
 
 # Example usage:
-target_movement = np.array([[x1, y1], [x2, y2], [x3, y3]])  # Your target movement
-all_movements = [...]  # List of numpy arrays representing all movements
+target_movement = np.array([[x1, y1], [x2, y2], [x3, y3]])
+all_movements = [...]
 
 similar_movements = find_similar_movement_pattern(target_movement, all_movements, k=5)
 print("Similar movements found:", similar_movements)
