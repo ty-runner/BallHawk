@@ -1,3 +1,5 @@
+#DELETE
+
 from ultralytics import YOLO
 
 model = YOLO('yolov8n.pt')  # Make sure you have the correct path or use a pre-trained model available in their repository

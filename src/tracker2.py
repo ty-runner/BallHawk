@@ -1,4 +1,24 @@
 '''
+
+###############
+SPLICER#########
+
+import cv2
+
+def splice_frames(video_path):
+    cap = cv2.VideoCapture(video_path)
+    frames = []
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+        frames.append(frame)
+    cap.release()
+    return frames
+
+#############################################
+
+
 import cv2
 import numpy as np
 import pytesseract
@@ -186,7 +206,7 @@ def process_frame(frame, model):
     return frame
 
 # Initialize the model and video source
-model = YOLO('yolov8n.pt')  # Ensure you have the correct path to the model
+model = YOLO('yolov8x.pt')  # Ensure you have the correct path to the model
 cap = cv2.VideoCapture('test2.mp4')  # Ensure you have the correct path to your video file
 
 while True:

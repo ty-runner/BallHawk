@@ -32,3 +32,13 @@ From this, you can understand what plays the opposer runs more frequently and in
 
 # Contributing
 Contributions are more than welcome! If you find any bugs or ideas on new features, please submit an issue to do so.
+
+
+# Technical Jargin
+WIP
+
+
+# FAQ
+WIP
+
+
