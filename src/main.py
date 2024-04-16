@@ -3,7 +3,9 @@ import tkinter as tk
 from tkinter import filedialog
 import os
 from uploader import process_video
-
+"""
+Super outdated code, but it's just a placeholder for the main.py file.
+"""
 current_path = os.getcwd()
 print("Current path:", current_path)
 
