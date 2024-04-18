@@ -4,4 +4,4 @@ torch==2.2.0
 pylint==3.0.3
 torchvision==0.17.0
 ultralytics==8.1.8
-tslearn.metrics==0.6.3
+tslearn==0.6.3
