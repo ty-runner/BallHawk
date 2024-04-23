@@ -35,11 +35,11 @@ jobs:
       - name: Generate Build Artifact
         run: |
           mkdir build_output
-          cp src/basic_GUI.py build_output/
           cp src/main.py build_output/
-          cp src/tracker.py build_output/
-          cp src/uploader.py build_output/
+          cp src/tracker2.py build_output/
           cp pylint_log.txt build_output/
+          cp process_video.py build_output/
+          cp movement_recognizer.py build_output/
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
