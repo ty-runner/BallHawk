@@ -58,10 +58,10 @@ def calculate_quality_score(video_info):
         clarity_scale = clarity_score / 1000
     else:
         clarity_scale = 1
-    print(video_info)
-    print("Clarity Score:", clarity_score)
-    print("Resolution Scale:", resolution_scale)
-    print("FPS Scale:", fps_scale)
+    # print(video_info)
+    # print("Clarity Score:", clarity_score)
+    # print("Resolution Scale:", resolution_scale)
+    # print("FPS Scale:", fps_scale)
     score = score * resolution_scale * fps_scale * clarity_scale
     return score
 
