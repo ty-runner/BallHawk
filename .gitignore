@@ -160,8 +160,5 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-test1.mp4
-test2.mp4
-test1_output.mp4
-test2_output.mp4
+
 *.mp4

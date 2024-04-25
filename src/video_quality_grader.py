@@ -40,6 +40,7 @@ def assess_clarity(video_file):
             break
 
         sharpness = calculate_sharpness(frame)
+        print("Sharpness:", sharpness)
         total_sharpness += sharpness
         frame_count += 1
 
@@ -52,17 +53,15 @@ def calculate_quality_score(video_info):
     # Calculate sharpness score
     clarity_score = assess_clarity(sys.argv[1])
     score = 100
-    resolution_scale = video_info["frame_height"] / 720
-    fps_scale = video_info["fps"] / 30
-    if clarity_score < 1000:
-        clarity_scale = clarity_score / 1000
+    fps_scale = min(video_info["fps"] / 30, 1)
+    if clarity_score < 100:
+        clarity_scale = clarity_score / 100
     else:
         clarity_scale = 1
-    # print(video_info)
-    # print("Clarity Score:", clarity_score)
-    # print("Resolution Scale:", resolution_scale)
-    # print("FPS Scale:", fps_scale)
-    score = score * resolution_scale * fps_scale * clarity_scale
+    print(video_info)
+    print("Clarity Score:", clarity_score)
+    print("FPS Scale:", fps_scale)
+    score = score * ((0.3 * fps_scale) + (0.7 * clarity_scale)) # add weighting for clarity
     return score
 
 def main():
