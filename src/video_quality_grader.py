@@ -71,6 +71,10 @@ def main():
     if video_info:
         quality_score = calculate_quality_score(video_info)
         print("Quality Score:", quality_score)
+        if quality_score > 70:
+            print("Video quality is safe for processing")
+        if quality_score < 50:
+            print("Video quality is poor, consider using a higher quality video. Possible errors in processing")
     else:
         print("Failed to retrieve video information.")
 
