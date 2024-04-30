@@ -30,6 +30,7 @@ while cap.isOpened():
                     bbox_xywh.append(bbox)
                     confidences.append(conf)
                     class_ids.append(cls_id)
+                    print (bbox_xywh)
 
     if bbox_xywh:
         try:
