@@ -207,16 +207,21 @@ def process_frame(frame, model):
 
 # Initialize the model and video source
 model = YOLO('yolov8x.pt')  # Ensure you have the correct path to the model
-cap = cv2.VideoCapture('test2.mp4')  # Ensure you have the correct path to your video file
+cap = cv2.VideoCapture('tt1.mp4')  # Ensure you have the correct path to your video file
+
+frame_count = 0
 
 while True:
     ret, frame = cap.read()
     if not ret:
         break
 
-    frame = process_frame(frame, model)
+    if frame_count % 5 == 0:
+        frame = process_frame(frame, model)
+        cv2.imshow('Frame', frame)
+
+    frame_count += 1
     
-    cv2.imshow('Frame', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
