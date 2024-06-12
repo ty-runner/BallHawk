@@ -15,6 +15,8 @@ from CalculateCenter import calculate_center
 #TO WORK ON: The numbers simply iterate if a player is lost for even a frame
 #This might be easily fixes by using OCR for player numbers
 
+
+#exported to InitalizeModel.py
 def initialize_model(model_path='PublicModels/yolov8n.pt'):
     model = YOLO(model_path)
     deepsort = DeepSort(max_age=30)

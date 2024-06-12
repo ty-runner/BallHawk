@@ -5,7 +5,7 @@ import os
 from uploader import process_video
 """
 Super outdated code, but it's just a placeholder for the main.py file.
-"""
+
 current_path = os.getcwd()
 print("Current path:", current_path)
 
@@ -20,4 +20,11 @@ upload_button = tk.Button(root, text="Upload Video", command=upload_video)
 upload_button.pack(pady=20)
 
 root.mainloop()
+
+"""
+
+
+from InitalizeModel import initialize_model
+
+model, deepsort = initialize_model('TestInputs/wide_23s.mp4')
 

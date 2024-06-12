@@ -3,8 +3,24 @@ import numpy as np
 import easyocr
 from ultralytics import YOLO
 
+'''
+0: 384x640 29 persons, 1 horse, 57.4ms
+Speed: 3.5ms preprocess, 57.4ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+Detections shape: torch.Size([4])
+Detections content: tensor([883.0917, 264.2418, 975.2848, 550.7069])
+Detection: 883.0917358398438
+Traceback (most recent call last):
+  File "/Users/michael/Desktop/Snr Design/ECE-49595-Proj/src/allin2.py", line 71, in <module>
+    boxes = detect_players(frame, model)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michael/Desktop/Snr Design/ECE-49595-Proj/src/allin2.py", line 22, in detect_players
+    if detection[4] > conf_threshold and int(detection[5]) == 0:  # Check confidence and class
+       ~~~~~~~~~^^^
+IndexError: index 4 is out of bounds for dimension 0 with size 0
+'''
+
 # Load YOLOv8 model
-model = YOLO('yolov8n.pt')
+model = YOLO('PublicModels/yolov8n.pt')
 
 # Initialize EasyOCR reader
 reader = easyocr.Reader(['en'])
@@ -54,7 +70,7 @@ def extract_jersey_number(frame, box):
             return numbers[0]
     return 'Unknown'
 
-capture = cv2.VideoCapture('test2.mp4')
+capture = cv2.VideoCapture('TestInputs/wide_23s.mp4')
 frame_width = int(capture.get(3))
 frame_height = int(capture.get(4))
 out = cv2.VideoWriter('test2_output.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))

@@ -5,7 +5,7 @@ import easyocr
 from ultralytics import YOLO
 
 # Load YOLOv8 model
-model = YOLO('yolov8n.pt')
+model = YOLO('PublicModels/yolov8n.pt')
 
 # Initialize EasyOCR reader
 reader = easyocr.Reader(['en'])
@@ -83,7 +83,7 @@ def extract_jersey_number(frame, box):
     return 'Unknown'
 
 # Setup video capture and output
-capture = cv2.VideoCapture('test2.mp4')
+capture = cv2.VideoCapture('TestInputs/wide_23s.mp4')
 frame_width = int(capture.get(3))
 frame_height = int(capture.get(4))
 out = cv2.VideoWriter('test2_out.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))
