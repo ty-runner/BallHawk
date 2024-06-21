@@ -1,7 +1,27 @@
-#NEED HEADER
 import cv2
 
 def display_frame(frame, tracks):
+    """
+    Display a video frame with tracked objects highlighted.
+
+    This function takes a video frame and a list of tracked objects, and displays the frame with bounding boxes 
+    and track IDs drawn around the tracked objects. Each tracked object is represented by a rectangle and a label 
+    with its track ID.
+
+    Args:
+        frame: The video frame to be displayed.
+        tracks: A list of tracked objects. Each track object is expected to have a `track_id` attribute and 
+                a `to_ltrb` method that returns the bounding box in left-top-right-bottom (LTRB) format.
+
+    Returns:
+        None
+
+    Examples:
+        >>> frame = cv2.imread('frame.jpg')
+        >>> tracks = [track1, track2]
+        >>> display_frame(frame, tracks)
+    """
+    
     track_ids = []
     for track in tracks:
         track_id = track.track_id
