@@ -5,33 +5,11 @@ import easyocr
 from ultralytics import YOLO
 
 # Load YOLOv8 model
-model = YOLO('PublicModels/yolov8n.pt')
+model = YOLO('PublicModels/yolov8x.pt')
 
 # Initialize EasyOCR reader
 reader = easyocr.Reader(['en'])
 
-'''
-def detect_players(frame, model, conf_threshold=0.5):
-    results = model(frame)
-    boxes = []
-    print("Results details:", results)  # Print more details about the results
-    if results and hasattr(results[0], 'boxes') and results[0].boxes.xyxy[0] is not None:
-        detections = results[0].boxes.xyxy[0]  # This should be a tensor with all detections
-        print(f"Total detections: {len(detections)}")  # Debugging output
-        for detection in detections:
-            print(f"Detection Tensor: {detection}")  # Print each detection tensor for debugging
-            try:
-                if detection.numel() == 6:  # Use numel() to check number of elements in the tensor
-                    x1, y1, x2, y2, conf, cls_id = detection.tolist()  # Convert tensor to list
-                    if conf > conf_threshold and cls_id == 0:
-                        x1, y1, x2, y2 = map(int, [x1, y1, x2, y2])
-                        boxes.append([x1, y1, x2-x1, y2-y1])
-            except Exception as e:
-                print(f"Error processing detection: {e}")
-    else:
-        print("No results or malformed results structure.")
-    return boxes
-'''
 def detect_players(frame, model, conf_threshold=0.5):
     results = model(frame)  # Get results from the model
     print("Complete Results Object:", results)  # Print the complete results object
